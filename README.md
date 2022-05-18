@@ -101,15 +101,29 @@ class Solution(object):
             return True
         start,end=0, len(s)-1 # 定义头尾指针
         while start < end:
-            if not (s[start].isalpha() or s[start].isdigit()): # 如果
+            if not (s[start].isalpha() or s[start].isdigit()): # 如果不满足条件，跳到下一个值
                 start += 1
                 continue
-            if not (s[end].isalpha() or s[end].isdigit()):
+            if not (s[end].isalpha() or s[end].isdigit()): # 同上
                 end -= 1
                 continue
-            if s[start].lower() != s[end].lower():
+            if s[start].lower() != s[end].lower(): # 如果头尾不相等，返回 false
                 return False
-            start += 1
+            start += 1 # 进位
             end   -= 1
         return True
 ```
+#### 解法 2 pythonic 
+```python
+class Solution(object):
+    def isPalindrome(self, s):
+        “””
+        :type s: str
+        :rtype: bool
+        “””
+        sf = ‘’.join(filter(lambda x: x.isalpha() or x.isdigit(), s.lower()))
+        # print(sf)
+        if sf == sf[::-1]: return True
+        return False
+```
+
