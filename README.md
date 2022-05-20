@@ -159,3 +159,39 @@ class Solution(object):
             end -= 1
         return s
 ```
+### 557. 反转字符串中的单词 III
+给定一个字符串 s ，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。
+示例 1：
+```
+输入：s = “Let ’s take LeetCode contest”
+输出：”s ’teL ekat edoCteeL tsetnoc”
+```
+示例 2:
+```
+输入： s = “God Ding”
+输出：”doG gniD”
+```
+提示：
+`1 <= s.length <= 5 * 104`
+s 包含可打印的 ASCII 字符。
+s 不包含任何开头或结尾空格。
+s 里 至少 有一个词。
+s 中的所有单词都用一个空格隔开。
+#### 解法 1
+```python
+class Solution(object):
+    def reverseWords(self, s):
+        “””
+        :type s: str
+        :rtype: str
+        “””
+        res = []
+        for wd in s.split():
+            res.append(wd[::-1])
+        return ‘ ‘.join(res)
+```
+
+## Day 4
+### BF 算法
+BF 算法的全称是**brute force 算法**，其实就是暴力匹配算法：对于给定文本串`t`和`p`逐个进行比对，如果连续相等则成功，否则模式匹配失败。（两个 for 循环）
+
